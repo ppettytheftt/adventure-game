@@ -10,7 +10,7 @@ public class ArmorClassRating {
     }
 
     public void setTotalArmorClassRating(int totalArmorClassRating) {
-        this.totalArmorClassRating = getBonusToRating() + getBaseRating();
+        this.totalArmorClassRating =totalArmorClassRating;
     }
 
     public int getBonusToRating() {

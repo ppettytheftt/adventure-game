@@ -1,5 +1,6 @@
 package CharacterClasses;
 
+import Skills.Skill;
 import jdk.jshell.StatementSnippet;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class CharacterClass {
     private ClassAttributes baseAttributes;
     private ArmorProficiency armorProficiency;
     private WeaponProficiency weaponProficiency;
-    private Skills baseSkills;
+    private List<Skill> baseSkills;
     private List<String> classWeaknessList;
     private List<String> classStrongAgainstList;
 
