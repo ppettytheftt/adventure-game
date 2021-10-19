@@ -1,7 +1,6 @@
 package CharacterClasses;
 
 import Skills.Skill;
-import jdk.jshell.StatementSnippet;
 
 import java.util.List;
 
@@ -9,7 +8,7 @@ public class CharacterClass {
     private String className;
     private String description;
     private ClassAttributes baseAttributes;
-    private ArmorProficiency armorProficiency;
+    private List<ArmorProficiency> armorProficiencies;
     private WeaponProficiency weaponProficiency;
     private List<Skill> baseSkills;
     private List<String> classWeaknessList;
@@ -39,12 +38,12 @@ public class CharacterClass {
         this.baseAttributes = baseAttributes;
     }
 
-    public ArmorProficiency getArmorProficiency() {
-        return armorProficiency;
+    public List<ArmorProficiency> getArmorProficiencies() {
+        return armorProficiencies;
     }
 
-    public void setArmorProficiency(ArmorProficiency armorProficiency) {
-        this.armorProficiency = armorProficiency;
+    public void setArmorProficiencies(List<ArmorProficiency> armorProficiencies) {
+        this.armorProficiencies = armorProficiencies;
     }
 
     public WeaponProficiency getWeaponProficiency() {
@@ -55,11 +54,11 @@ public class CharacterClass {
         this.weaponProficiency = weaponProficiency;
     }
 
-    public Skills getBaseSkills() {
+    public List<Skill> getBaseSkills() {
         return baseSkills;
     }
 
-    public void setBaseSkills(Skills baseSkills) {
+    public void setBaseSkills(List<Skill> baseSkills) {
         this.baseSkills = baseSkills;
     }
 

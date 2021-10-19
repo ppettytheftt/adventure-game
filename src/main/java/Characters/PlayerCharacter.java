@@ -3,6 +3,11 @@ package Characters;
 import Attributes.ArmorClassRating;
 import Attributes.CharacterAttributes;
 import CharacterClasses.CharacterClass;
+import Skills.Skill;
+import WeaponsAndArmor.Weapon;
+
+import java.util.List;
+
 
 public class PlayerCharacter {
     String name;
