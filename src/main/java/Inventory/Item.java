@@ -4,7 +4,7 @@ public class Item {
     String itemName;
     String itemDescription;
     String itemType;
-    String target;
+    String targetUse;
 
 
     public String getItemName() {
@@ -31,11 +31,11 @@ public class Item {
         this.itemType = itemType;
     }
 
-    public String getTarget() {
-        return target;
+    public String getTargetUse() {
+        return targetUse;
     }
 
-    public void setTarget(String target) {
-        this.target = target;
+    public void setTargetUse(String targetUse) {
+        this.targetUse = targetUse;
     }
 }

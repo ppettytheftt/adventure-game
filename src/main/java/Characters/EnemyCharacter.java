@@ -2,8 +2,7 @@ package Characters;
 
 import Attributes.ArmorClassRating;
 import Attributes.CharacterAttributes;
-import CharacterClasses.CharacterClass;
-import Inventory.Inventory;
+import Inventory.Item;
 import Passive.Passive;
 import Skills.Skill;
 import Spell.Spell;
@@ -12,10 +11,9 @@ import WeaponsAndArmor.Weapon;
 
 import java.util.List;
 
-
-public class PlayerCharacter {
+public class EnemyCharacter {
     String name;
-    CharacterClass characterClass;
+    String enemyType;
     CharacterAttributes characterAttributes;
     ArmorClassRating armorClassRating;
     Weapon currentlyEquippedWeapon;
@@ -23,10 +21,10 @@ public class PlayerCharacter {
     List<Spell> spellList;
     List<Skill> skillList;
     List<Passive> passiveList;
-    Inventory inventory;
+    List<Item> possibleDrops;
     int currentHp;
     int maxHp;
-    int xp;
+    int xpWorth;
 
     public String getName() {
         return name;
@@ -36,12 +34,12 @@ public class PlayerCharacter {
         this.name = name;
     }
 
-    public CharacterClass getCharacterClass() {
-        return characterClass;
+    public String getEnemyType() {
+        return enemyType;
     }
 
-    public void setCharacterClass(CharacterClass characterClass) {
-        this.characterClass = characterClass;
+    public void setEnemyType(String enemyType) {
+        this.enemyType = enemyType;
     }
 
     public CharacterAttributes getCharacterAttributes() {
@@ -100,12 +98,12 @@ public class PlayerCharacter {
         this.passiveList = passiveList;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public List<Item> getPossibleDrops() {
+        return possibleDrops;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+    public void setPossibleDrops(List<Item> possibleDrops) {
+        this.possibleDrops = possibleDrops;
     }
 
     public int getCurrentHp() {
@@ -124,11 +122,11 @@ public class PlayerCharacter {
         this.maxHp = maxHp;
     }
 
-    public int getXp() {
-        return xp;
+    public int getXpWorth() {
+        return xpWorth;
     }
 
-    public void setXp(int xp) {
-        this.xp = xp;
+    public void setXpWorth(int xpWorth) {
+        this.xpWorth = xpWorth;
     }
 }

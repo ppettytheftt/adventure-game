@@ -1,6 +1,7 @@
 package StatusEffect;
 
 import Attributes.CharacterAttributes;
+import Attributes.RacialAttributes;
 
 public class StatusEffect {
     String name;

@@ -1,5 +1,6 @@
 package Passive;
 
+import Attributes.RacialAttributes;
 import CharacterClasses.ClassAttributes;
 import StatusEffect.StatusEffect;
 

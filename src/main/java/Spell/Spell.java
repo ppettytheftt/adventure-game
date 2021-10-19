@@ -45,11 +45,11 @@ public class Spell {
         this.affectsStatusEffect = affectsStatusEffect;
     }
 
-    public StatusEffect.StatusEffect getStatusEffectAffected() {
+    public StatusEffect getStatusEffectAffected() {
         return statusEffectAffected;
     }
 
-    public void setStatusEffectAffected(StatusEffect.StatusEffect statusEffectAffected) {
+    public void setStatusEffectAffected(StatusEffect statusEffectAffected) {
         this.statusEffectAffected = statusEffectAffected;
     }
 

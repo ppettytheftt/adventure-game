@@ -1,21 +1,15 @@
 package Gamelogic;
 
+import Characters.PlayerCharacter;
+
 import java.util.Scanner;
 
-public class Gamelogic {
+public class GameLogic {
+
+    private static PrinterService printerService;
     static Scanner scanner = new Scanner(System.in);
-    static Player player;
+    static PlayerCharacter player;
     public static boolean isRunning;
-
-    //random encounters
-    public static String[] encounters = {""};
-
-    //enemy names
-    public static String[] enemies = {""};
-
-    //story elements
-    public static int place = 0, act = 1;
-    public static String[] places = {""};
 
     //method to get user input from console
     public static int readInt(String prompt, int userChoices) {
@@ -35,7 +29,6 @@ public class Gamelogic {
     }
 
     public static void startGame() {
-        PrinterService printerService = new PrinterService();
         boolean nameSet = false;
         String name;
         //print title screen
@@ -60,7 +53,8 @@ public class Gamelogic {
             nameSet = true;
         }
     }while (!nameSet);
-    player = new Player(name);
+    player = new PlayerCharacter();
+    player.setName(name);
 
     //prints the story intro, use this as a blueprint for printing story pieces
         Story.printIntro();
@@ -85,17 +79,10 @@ public class Gamelogic {
     }
 
     private static void characterInfo() {
-        PrinterService printerService = new PrinterService();
         printerService.printHeading("CHARACTER INFO");
-        System.out.println(player.name + "\tHP: " + player.hp + "/" + player.maxHp);
-        System.out.println("XP: " + player.xp);
+        System.out.println(player.getName() + "\tHP: " + player.getCurrentHp() + "/" + player.getMaxHp());
+        System.out.println("XP: " + player.getXp());
 
-        if (player.numAtkUpgrades > 0) {
-            System.out.println("Offensive Trait: " + player.atkUpgrades[player.numAtkUpgrades - 1]);
-        }
-        if (player.numDefUpgrades > 0) {
-            System.out.println("Defensive Trait: " + player.defUpgrades[player.numDefUpgrades - 1]);
-        }
         anythingToContinue();
     }
 
