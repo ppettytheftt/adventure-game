@@ -1,6 +1,8 @@
 package Skills;
 
 import Attributes.CharacterAttributes;
+import Gamelogic.Dice;
+import Story.StoryElement;
 
 import java.util.List;
 

@@ -1,5 +1,9 @@
 package CharacterClasses;
 
+import Skills.Skill;
+
+import java.util.List;
+
 public class ClassAttributes {
     int strengthModifier;
     int dexModifier;

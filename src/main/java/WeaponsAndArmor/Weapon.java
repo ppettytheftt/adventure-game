@@ -1,6 +1,7 @@
 package WeaponsAndArmor;
 
 
+import Gamelogic.Dice;
 import Inventory.Money;
 
 public class Weapon {

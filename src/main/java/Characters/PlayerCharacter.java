@@ -3,7 +3,10 @@ package Characters;
 import Attributes.ArmorClassRating;
 import Attributes.CharacterAttributes;
 import CharacterClasses.CharacterClass;
+import Inventory.Inventory;
 import Skills.Skill;
+import Spell.Spell;
+import StatusEffect.StatusEffect;
 import WeaponsAndArmor.Weapon;
 
 import java.util.List;
