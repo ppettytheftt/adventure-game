@@ -10,6 +10,7 @@ public class Weapon {
     boolean affectsCharacterAttributes;
     String weaponType;
     Money value;
+    int requiredLevel;
     Dice damageDice;
 
     public String getName() {
@@ -58,5 +59,13 @@ public class Weapon {
 
     public void setDamageDice(Dice damageDice) {
         this.damageDice = damageDice;
+    }
+
+    public int getRequiredLevel() {
+        return requiredLevel;
+    }
+
+    public void setRequiredLevel(int requiredLevel) {
+        this.requiredLevel = requiredLevel;
     }
 }

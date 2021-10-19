@@ -27,6 +27,7 @@ public class PlayerCharacter {
     int currentHp;
     int maxHp;
     int xp;
+    int currentLevel;
 
     public String getName() {
         return name;
@@ -130,5 +131,13 @@ public class PlayerCharacter {
 
     public void setXp(int xp) {
         this.xp = xp;
+    }
+
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
     }
 }
