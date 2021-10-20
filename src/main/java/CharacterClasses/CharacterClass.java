@@ -9,7 +9,7 @@ public class CharacterClass {
     private String description;
     private ClassAttributes baseAttributes;
     private List<ArmorProficiency> armorProficiencies;
-    private WeaponProficiency weaponProficiency;
+    private List<WeaponProficiency> weaponProficiencies;
     private List<Skill> baseSkills;
     private List<String> classWeaknessList;
     private List<String> classStrongAgainstList;
@@ -46,12 +46,12 @@ public class CharacterClass {
         this.armorProficiencies = armorProficiencies;
     }
 
-    public WeaponProficiency getWeaponProficiency() {
-        return weaponProficiency;
+    public WeaponProficiency getWeaponProficiencies() {
+        return weaponProficiencies;
     }
 
-    public void setWeaponProficiency(WeaponProficiency weaponProficiency) {
-        this.weaponProficiency = weaponProficiency;
+    public void setWeaponProficiencies(List<WeaponProficiency> weaponProficiencies) {
+        this.weaponProficiencies = weaponProficiencies;
     }
 
     public List<Skill> getBaseSkills() {

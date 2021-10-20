@@ -1,16 +1,7 @@
 package CharacterClasses;
 
 public class WeaponProficiency {
-    String description;
     String proficiencyType;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getProficiencyType() {
         return proficiencyType;

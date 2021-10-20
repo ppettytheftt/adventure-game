@@ -30,7 +30,9 @@ public class GameLogic {
 
     public static void startGame() {
         boolean nameSet = false;
+        boolean classChosen = false;
         String name;
+        String classChoice;
         //print title screen
         PrinterService.clearConsole();
         printerService.printSeperator(40);
@@ -56,8 +58,14 @@ public class GameLogic {
     player = new PlayerCharacter();
     player.setName(name);
 
-    //prints the story intro, use this as a blueprint for printing story pieces
-        Story.printIntro();
+    //get The player's chosen class
+        do {
+            printerService.printHeading("Please Choose Your Class");
+            printerService.printMenu(classMenu);
+            int input = readInt("-> ", 4);
+        }
+    //print the story intro, use this as a blueprint for printing story pieces
+
 
     //setting isRunning to true, so the game loop can continue
     isRunning = true;
