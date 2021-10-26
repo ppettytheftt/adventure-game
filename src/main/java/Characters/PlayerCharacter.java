@@ -1,112 +1,32 @@
 package Characters;
 
-import Attributes.ArmorClassRating;
-import Attributes.CharacterAttributes;
-import CharacterClasses.CharacterClass;
-import Inventory.Inventory;
-import Passive.Passive;
-import Skills.Skill;
-import Spell.Spell;
-import StatusEffect.StatusEffect;
-import WeaponsAndArmor.Weapon;
-
-import java.util.List;
-
+import BattleMechanics.Spell;
 
 public class PlayerCharacter {
+    int maxHp;
+    int currentHp;
+    int currentXp;
+    int xpUntilNextLevel;
+    int strength;
+    int dexterity;
+    int intelligence;
+    int endurance;
+    int wisdom;
+    int luck;
+    int defense;
+    int attackDice;
+    int defenseDice;
     String name;
     CharacterClass characterClass;
-    CharacterAttributes characterAttributes;
-    ArmorClassRating armorClassRating;
-    Weapon currentlyEquippedWeapon;
-    StatusEffect statusEffect;
-    List<Spell> spellList;
-    List<Skill> skillList;
-    List<Passive> passiveList;
-    Inventory inventory;
-    int currentHp;
-    int maxHp;
-    int xp;
-    int currentLevel;
+    String currentStatusEffect;
 
-    public String getName() {
-        return name;
+
+    public int getMaxHp() {
+        return maxHp;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public CharacterClass getCharacterClass() {
-        return characterClass;
-    }
-
-    public void setCharacterClass(CharacterClass characterClass) {
-        this.characterClass = characterClass;
-    }
-
-    public CharacterAttributes getCharacterAttributes() {
-        return characterAttributes;
-    }
-
-    public void setCharacterAttributes(CharacterAttributes characterAttributes) {
-        this.characterAttributes = characterAttributes;
-    }
-
-    public ArmorClassRating getArmorClassRating() {
-        return armorClassRating;
-    }
-
-    public void setArmorClassRating(ArmorClassRating armorClassRating) {
-        this.armorClassRating = armorClassRating;
-    }
-
-    public Weapon getCurrentlyEquippedWeapon() {
-        return currentlyEquippedWeapon;
-    }
-
-    public void setCurrentlyEquippedWeapon(Weapon currentlyEquippedWeapon) {
-        this.currentlyEquippedWeapon = currentlyEquippedWeapon;
-    }
-
-    public StatusEffect getStatusEffect() {
-        return statusEffect;
-    }
-
-    public void setStatusEffect(StatusEffect statusEffect) {
-        this.statusEffect = statusEffect;
-    }
-
-    public List<Spell> getSpellList() {
-        return spellList;
-    }
-
-    public void setSpellList(List<Spell> spellList) {
-        this.spellList = spellList;
-    }
-
-    public List<Skill> getSkillList() {
-        return skillList;
-    }
-
-    public void setSkillList(List<Skill> skillList) {
-        this.skillList = skillList;
-    }
-
-    public List<Passive> getPassiveList() {
-        return passiveList;
-    }
-
-    public void setPassiveList(List<Passive> passiveList) {
-        this.passiveList = passiveList;
-    }
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
     }
 
     public int getCurrentHp() {
@@ -117,27 +37,115 @@ public class PlayerCharacter {
         this.currentHp = currentHp;
     }
 
-    public int getMaxHp() {
-        return maxHp;
+    public int getCurrentXp() {
+        return currentXp;
     }
 
-    public void setMaxHp(int maxHp) {
-        this.maxHp = maxHp;
+    public void setCurrentXp(int currentXp) {
+        this.currentXp = currentXp;
     }
 
-    public int getXp() {
-        return xp;
+    public int getXpUntilNextLevel() {
+        return xpUntilNextLevel;
     }
 
-    public void setXp(int xp) {
-        this.xp = xp;
+    public void setXpUntilNextLevel(int xpUntilNextLevel) {
+        this.xpUntilNextLevel = xpUntilNextLevel;
     }
 
-    public int getCurrentLevel() {
-        return currentLevel;
+    public int getStrength() {
+        return strength;
     }
 
-    public void setCurrentLevel(int currentLevel) {
-        this.currentLevel = currentLevel;
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    public int getEndurance() {
+        return endurance;
+    }
+
+    public void setEndurance(int endurance) {
+        this.endurance = endurance;
+    }
+
+    public int getWisdom() {
+        return wisdom;
+    }
+
+    public void setWisdom(int wisdom) {
+        this.wisdom = wisdom;
+    }
+
+    public int getLuck() {
+        return luck;
+    }
+
+    public void setLuck(int luck) {
+        this.luck = luck;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCurrentStatusEffect() {
+        return currentStatusEffect;
+    }
+
+    public void setCurrentStatusEffect(String currentStatusEffect) {
+        this.currentStatusEffect = currentStatusEffect;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public int getAttackDice() {
+        return attackDice;
+    }
+
+    public void setAttackDice(int attackDice) {
+        this.attackDice = attackDice;
+    }
+
+    public int getDefenseDice() {
+        return defenseDice;
+    }
+
+    public void setDefenseDice(int defenseDice) {
+        this.defenseDice = defenseDice;
+    }
+
+    public CharacterClass getCharacterClass() {
+        return characterClass;
+    }
+
+    public void setCharacterClass(CharacterClass characterClass) {
+        this.characterClass = characterClass;
     }
 }
