@@ -37,7 +37,7 @@ public class Game {
         }
     }
 
-    private void loadLevelOne(){
+    private static void loadLevelOne(){
         PrinterService printerService = new PrinterService();
         Area currentArea = loadMainRoad();
         String[] areaList = {"Main Road", "Bazaar", "Tavern", "Church", "Castle Gates"};
@@ -54,6 +54,7 @@ public class Game {
 
         if (mainMenuChoice == 1) {
             //Need menu for next area...
+            System.out.println("Route needs to be coded");
         } else if (mainMenuChoice == 2){
             rollForLook(currentArea);
         }
@@ -61,7 +62,7 @@ public class Game {
 
     }
 
-    private Area loadMainRoad() {
+    private static Area loadMainRoad() {
         Area mainRoad = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
@@ -117,7 +118,7 @@ public class Game {
         }
     }
 
-    private void rollForLook(Area currentArea) {
+    private static void rollForLook(Area currentArea) {
         DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
         List<String> lookList = currentArea.getPossibleLookOutcomes();
         int diceRoll = diceAndCoinService.rollDice(currentArea.getDiceForRolls());
