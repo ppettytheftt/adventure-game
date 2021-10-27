@@ -1,5 +1,6 @@
 import BattleMechanics.DiceAndCoinService;
 import Characters.CharacterClass;
+import Characters.Npc;
 import Characters.PlayerCharacter;
 import Map.Area;
 import MiscServices.PrinterService;
@@ -53,7 +54,6 @@ public class Game {
         int mainMenuChoice = printerService.getUserNumberInput();
 
         if (mainMenuChoice == 1) {
-            //Need menu for next area...
             boolean inMoveMenu = true;
             while(inMoveMenu) {
                 int counter = 1;
@@ -70,6 +70,13 @@ public class Game {
             }
         } else if (mainMenuChoice == 2){
             rollForLook(currentArea);
+        } else if (mainMenuChoice == 3){
+            boolean inTalkMenu = true;
+            while(inTalkMenu){
+                //need to create menu logic
+                //Going to iterate over the arraylist of possible npcs, grabbing the name for options to the player
+                //then matching the possible dialogue to responses to the player to simulate conversation.
+            }
         }
 
 
@@ -150,6 +157,7 @@ public class Game {
         Area tavern = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
+        List<Npc> listOfNpcs = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Church");
@@ -166,6 +174,10 @@ public class Game {
         tavern.setNextAreas(areaList);
         tavern.setDiceForRolls(4);
         tavern.setPossibleLookOutcomes(lookOutcomes);
+        Npc shadyCharacter = new Npc();
+        shadyCharacter.setName("Shady character");
+        //need to create other npcs to interact with for loading the tavern. Also need to set the other values in order to create the next
+        //menu option
 
         return tavern;
     }

@@ -1,5 +1,7 @@
 package Map;
 
+import Characters.Npc;
+
 import java.util.List;
 
 public class Area {
@@ -8,6 +10,7 @@ public class Area {
     private List<String> nextAreas;
     private int diceForRolls;
     private List<String> possibleLookOutcomes;
+    private List<Npc> npcList;
 
     public String getAreaName() {
         return areaName;
@@ -47,5 +50,13 @@ public class Area {
 
     public void setPossibleLookOutcomes(List<String> possibleLookOutcomes) {
         this.possibleLookOutcomes = possibleLookOutcomes;
+    }
+
+    public List<Npc> getNpcList() {
+        return npcList;
+    }
+
+    public void setNpcList(List<Npc> npcList) {
+        this.npcList = npcList;
     }
 }
