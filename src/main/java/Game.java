@@ -368,6 +368,6 @@ public class Game {
         DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
         List<String> lookList = currentArea.getPossibleLookOutcomes();
         int diceRoll = diceAndCoinService.rollDice(currentArea.getDiceForRolls());
-        System.out.println(lookList.get(diceRoll));
+        System.out.println(lookList.get(diceRoll -1));
     }
 }
