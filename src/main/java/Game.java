@@ -54,12 +54,46 @@ public class Game {
 
         if (mainMenuChoice == 1) {
             //Need menu for next area...
-            System.out.println("Route needs to be coded");
+            boolean inMoveMenu = true;
+            while(inMoveMenu) {
+                int counter = 1;
+                System.out.println("Please choose an option to move to.");
+
+                for (String area : areaList) {
+                    System.out.println(counter + ")  " + area);
+                    counter++;
+                }
+                int choiceForMove = printerService.getUserNumberInput();
+                currentArea = loadMovingChoice(choiceForMove);
+                System.out.println(currentArea.getOpeningText());
+                inMoveMenu = false;
+            }
         } else if (mainMenuChoice == 2){
             rollForLook(currentArea);
         }
 
 
+    }
+
+    private static Area loadMovingChoice(int choiceForMove) {
+        Area newCurrentArea = new Area();
+        switch (choiceForMove){
+            case 1: newCurrentArea = loadMainRoad();
+            break;
+
+            case 2: newCurrentArea = loadBazaar();
+            break;
+
+            case 3: newCurrentArea = loadTavern();
+            break;
+
+            case 4: newCurrentArea = loadChurch();
+            break;
+
+            case 5: newCurrentArea = loadCastleGates();
+            break;
+        }
+        return newCurrentArea;
     }
 
     private static Area loadMainRoad() {
@@ -85,6 +119,55 @@ public class Game {
         mainRoad.setPossibleLookOutcomes(lookOutcomes);
 
         return mainRoad;
+    }
+
+    private static Area loadBazaar() {
+        Area bazaar = new Area();
+        List<String> areaList = new ArrayList<>();
+        List<String> lookOutcomes = new ArrayList<>();
+        areaList.add("Main Road");
+        areaList.add("Tavern");
+        areaList.add("Church");
+        areaList.add("Castle Gates");
+        lookOutcomes.add("There's A lot for sale here... as much as I wish I could buy, I need work first");
+        lookOutcomes.add("This is quite a large place. I wonder what's around.");
+        lookOutcomes.add("The church bells are quite loud. I wonder if anyone there has any work?");
+        lookOutcomes.add("The tavern seems like a good place to look for work. I'm sure there's a lot of shady characters\n" +
+                "needing a hand.");
+
+        bazaar.setAreaName("Bazaar");
+        bazaar.setOpeningText("The bazaar of the Reindt Stronghold. There are many merchants lining the streets \n" +
+                "selling many different things here. Looks like there's nothing that would be too hard to find here.\n" +
+                "After I find some work I should look into upgrading my gear here.");
+        bazaar.setNextAreas(areaList);
+        bazaar.setDiceForRolls(4);
+        bazaar.setPossibleLookOutcomes(lookOutcomes);
+
+        return bazaar;
+    }
+
+    private static Area loadTavern() {
+        Area tavern = new Area();
+        List<String> areaList = new ArrayList<>();
+        List<String> lookOutcomes = new ArrayList<>();
+        areaList.add("Main Road");
+        areaList.add("Bazaar");
+        areaList.add("Church");
+        areaList.add("Castle Gates");
+        lookOutcomes.add("It's quite noisy in here. Many patrons seem to be yelling over each other.");
+        lookOutcomes.add("What did I just step in?");
+        lookOutcomes.add("I can see a few people here who look like they might have some work.");
+        lookOutcomes.add("I should ask around for work.");
+
+        tavern.setAreaName("Bazaar");
+        tavern.setOpeningText("The tavern in the Reindt Stronghold. There are many people packed into the establishment \n" +
+                "talking over one another. I'm sure someone has to have some work around here. I see a few people sitting\n" +
+                "alone. Perhaps other travelers. I may be able to ask the bartender if anyone has been looking for work.");
+        tavern.setNextAreas(areaList);
+        tavern.setDiceForRolls(4);
+        tavern.setPossibleLookOutcomes(lookOutcomes);
+
+        return tavern;
     }
 
     private static CharacterClass getCharacterClass(int playerChoice) {
