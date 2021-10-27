@@ -1,7 +1,6 @@
 package Map;
 
 import Characters.NonPlayerCharacter;
-
 import java.util.ArrayList;
 import java.util.List;
 
