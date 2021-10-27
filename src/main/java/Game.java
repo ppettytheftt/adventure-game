@@ -1,6 +1,7 @@
 import BattleMechanics.DiceAndCoinService;
 import Characters.CharacterClass;
-import Characters.Npc;
+
+import Characters.NonPlayerCharacter;
 import Characters.PlayerCharacter;
 import Map.Area;
 import MiscServices.PrinterService;
@@ -25,7 +26,7 @@ public class Game {
             printClasses(classArray);
             playerCharacter.setCharacterClass(getCharacterClass(printerService.getUserNumberInput()));
 
-            printerService.printHeading("You have chosen the " + playerCharacter.getCharacterClass());
+            printerService.printHeading("You have chosen the " + playerCharacter.getCharacterClass().getClassName());
             String classContinueChoice = printerService.getUserTextInput("Do you wish to continue?");
             if (classContinueChoice.equals("no")) {
                 System.out.println("Please Rerun The Game");
@@ -43,42 +44,46 @@ public class Game {
         Area currentArea = loadMainRoad();
         String[] areaList = {"Main Road", "Bazaar", "Tavern", "Church", "Castle Gates"};
         String[] mainMenu = {"Move", "Look", "Talk", "Check Inventory", "Check Skills", "Check Status"};
+        boolean inLevelOne = true;
+        while (inLevelOne) {
+            printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
+                    "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
+                    "for any work available from the locals. You look to see what's around.");
 
-        printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
-                "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
-                "for any work available from the locals. You look to see what's around.");
+            for (int i = 0; i < mainMenu.length; i++) {
+                System.out.println((i + 1) + " " + mainMenu[i]);
+            }
+            int mainMenuChoice = printerService.getUserNumberInput();
 
-        for (int i = 0; i < mainMenu.length; i++) {
-            System.out.println((i + 1) + " " + mainMenu[i]);
-        }
-        int mainMenuChoice = printerService.getUserNumberInput();
+            boolean inMainMenu = true;
+            while (inMainMenu) {
+                if (mainMenuChoice == 1) {
 
-        if (mainMenuChoice == 1) {
-            boolean inMoveMenu = true;
-            while (inMoveMenu) {
-                int counter = 1;
-                System.out.println("Please choose an option to move to.");
+                    int counter = 1;
+                    System.out.println("Please choose an option to move to.");
 
-                for (String area : areaList) {
-                    System.out.println(counter + ")  " + area);
-                    counter++;
+                    for (String area : areaList) {
+                        System.out.println(counter + " )  " + area);
+                        counter++;
+                    }
+                    int choiceForMove = printerService.getUserNumberInput();
+                    currentArea = loadMovingChoice(choiceForMove);
+                    System.out.println(currentArea.getOpeningText());
+
+                } else if (mainMenuChoice == 2) {
+                    rollForLook(currentArea);
+                } else if (mainMenuChoice == 3) {
+                    boolean inTalkMenu = true;
+                    while (inTalkMenu) {
+                        //need to create menu logic
+                        //Going to iterate over the arraylist of possible npcs, grabbing the name for options to the player
+                        //then matching the possible dialogue to responses to the player to simulate conversation.
+                    }
                 }
-                int choiceForMove = printerService.getUserNumberInput();
-                currentArea = loadMovingChoice(choiceForMove);
-                System.out.println(currentArea.getOpeningText());
-                inMoveMenu = false;
-            }
-        } else if (mainMenuChoice == 2) {
-            rollForLook(currentArea);
-        } else if (mainMenuChoice == 3) {
-            boolean inTalkMenu = true;
-            while (inTalkMenu) {
-                //need to create menu logic
-                //Going to iterate over the arraylist of possible npcs, grabbing the name for options to the player
-                //then matching the possible dialogue to responses to the player to simulate conversation.
-            }
-        }
 
+            }
+
+        }
 
     }
 
@@ -162,7 +167,7 @@ public class Game {
         Area tavern = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        List<Npc> listOfNpcs = new ArrayList<>();
+        List<NonPlayerCharacter> listOfNonPlayerCharacters = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Church");
@@ -180,7 +185,7 @@ public class Game {
         tavern.setDiceForRolls(4);
         tavern.setPossibleLookOutcomes(lookOutcomes);
 
-        Npc shadyCharacter = new Npc();
+        NonPlayerCharacter shadyCharacter = new NonPlayerCharacter();
         shadyCharacter.setName("Shady character");
 
         List<String> npcResponses = new ArrayList<>();
@@ -196,9 +201,9 @@ public class Game {
         playerDialogue.add("Count me in. Where can I find it?");
         playerDialogue.add("No thanks, I think I'll keep looking.");
         shadyCharacter.setPossibleDialogue(playerDialogue);
-        listOfNpcs.add(shadyCharacter);
+        listOfNonPlayerCharacters.add(shadyCharacter);
 
-        Npc bartender = new Npc();
+        NonPlayerCharacter bartender = new NonPlayerCharacter();
         bartender.setName("Shady character");
 
         List<String> npcResponsesBartender = new ArrayList<>();
@@ -215,9 +220,9 @@ public class Game {
         playerDialogueBartender.add("Rats? Is there anything else that needs done?");
         playerDialogueBartender.add("Thanks for your help.");
         bartender.setPossibleDialogue(playerDialogueBartender);
-        listOfNpcs.add(bartender);
+        listOfNonPlayerCharacters.add(bartender);
 
-        tavern.setNpcList(listOfNpcs);
+        tavern.setNpcList(listOfNonPlayerCharacters);
 
         return tavern;
     }
@@ -226,7 +231,7 @@ public class Game {
         Area church = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        List<Npc> listOfNpcs = new ArrayList<>();
+        List<NonPlayerCharacter> listOfNonPlayerCharacters = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Tavern");
@@ -246,7 +251,7 @@ public class Game {
         church.setDiceForRolls(4);
         church.setPossibleLookOutcomes(lookOutcomes);
 
-        Npc priest = new Npc();
+        NonPlayerCharacter priest = new NonPlayerCharacter();
         priest.setName("Priest");
 
         List<String> npcResponses = new ArrayList<>();
@@ -259,9 +264,9 @@ public class Game {
         playerDialogue.add("Hello, Father. Have you heard of any work that needs to be done around the church?");
         playerDialogue.add("Thank you I will speak with him now.");
         priest.setPossibleDialogue(playerDialogue);
-        listOfNpcs.add(priest);
+        listOfNonPlayerCharacters.add(priest);
 
-        Npc brotherCaine = new Npc();
+        NonPlayerCharacter brotherCaine = new NonPlayerCharacter();
         brotherCaine.setName("Monk");
 
         List<String> brotherCaineResponses = new ArrayList<>();
@@ -278,9 +283,9 @@ public class Game {
         playerDialogueBrotherCaine.add("Rats? Is there anything else that needs done?");
         playerDialogueBrotherCaine.add("Thanks for your help.");
         brotherCaine.setPossibleDialogue(playerDialogueBrotherCaine);
-        listOfNpcs.add(brotherCaine);
+        listOfNonPlayerCharacters.add(brotherCaine);
 
-        church.setNpcList(listOfNpcs);
+        church.setNpcList(listOfNonPlayerCharacters);
 
         return church;
     }
@@ -289,7 +294,7 @@ public class Game {
         Area castleGates = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        List<Npc> listOfNpcs = new ArrayList<>();
+        List<NonPlayerCharacter> listOfNonPlayerCharacters = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Tavern");
@@ -309,7 +314,7 @@ public class Game {
         castleGates.setDiceForRolls(4);
         castleGates.setPossibleLookOutcomes(lookOutcomes);
 
-        Npc gateGuard = new Npc();
+        NonPlayerCharacter gateGuard = new NonPlayerCharacter();
         gateGuard.setName("Gate Guard");
 
         List<String> npcResponses = new ArrayList<>();
@@ -322,9 +327,9 @@ public class Game {
         playerDialogue.add("Hello, I'd like to pass.");
         playerDialogue.add("Well, okay.");
         gateGuard.setPossibleDialogue(playerDialogue);
-        listOfNpcs.add(gateGuard);
+        listOfNonPlayerCharacters.add(gateGuard);
 
-        castleGates.setNpcList(listOfNpcs);
+        castleGates.setNpcList(listOfNonPlayerCharacters);
 
         return castleGates;
     }
@@ -355,8 +360,7 @@ public class Game {
 
     private static void printClasses(String[] classArray) {
         for (int i = 0; i < classArray.length; i++) {
-            System.out.println(i + 1);
-            System.out.println(classArray[i]);
+            System.out.println(i + 1 + " ) " + classArray[i]);
         }
     }
 

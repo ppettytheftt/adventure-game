@@ -2,7 +2,7 @@ package Characters;
 
 import java.util.List;
 
-public class Npc {
+public class NonPlayerCharacter {
     private String name;
     private List<String> possibleDialogue;
     private List<String> responsesToUser;
