@@ -48,6 +48,18 @@ public class PrinterService {
         }
     }
 
+    public void anythingToContinue() {
+        boolean userEnteredAnything = false;
+        PrinterService printerService = new PrinterService();
+
+        while (!userEnteredAnything) {
+            printerService.createWhiteSpace(1);
+            printerService.getUserTextInput("** Enter any text to continue. **");
+
+            userEnteredAnything = true;
+        }
+    }
+
     private void lineSeparator(int lines) {
         for (int i = 0; i < lines; i++) {
             System.out.println("------***************************************************************------");

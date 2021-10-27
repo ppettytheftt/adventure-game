@@ -3,9 +3,16 @@ package MiscServices;
 import Map.Area;
 import Map.LevelLoader;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LocationService {
+    private LevelLoader levelLoader = new LevelLoader();
+
+
+
+
     public Area loadMovingChoice(int choiceForMove) {
-        LevelLoader levelLoader = new LevelLoader();
 
         Area newCurrentArea = new Area();
         switch (choiceForMove) {
@@ -30,5 +37,21 @@ public class LocationService {
                 break;
         }
         return newCurrentArea;
+    }
+
+    public List<Area> getAllAreasLevelOne(){
+        List<Area> areaList = new ArrayList<>();
+        Area mainRoad = levelLoader.loadMainRoad();
+        Area bazaar = levelLoader.loadBazaar();
+        Area tavern = levelLoader.loadTavern();
+        Area church = levelLoader.loadChurch();
+        Area castleGates = levelLoader.loadCastleGates();
+        areaList.add(mainRoad);
+        areaList.add(bazaar);
+        areaList.add(tavern);
+        areaList.add(church);
+        areaList.add(castleGates);
+
+        return areaList;
     }
 }

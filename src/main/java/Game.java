@@ -1,19 +1,25 @@
 import BattleMechanics.DiceAndCoinService;
 import Characters.PlayerCharacter;
+import Inventory.Item;
+import Inventory.ItemCreator;
 import Map.Area;
 import Map.LevelLoader;
 import MiscServices.CharacterService;
+import MiscServices.DialogueService;
 import MiscServices.LocationService;
 import MiscServices.PrinterService;
 
 
 public class Game {
+    private static final PlayerCharacter playerCharacter = new PlayerCharacter();
+    private static ItemCreator itemCreator;
 
     public static void startGame() {
+
         CharacterService characterService = new CharacterService();
         boolean runGame = true;
-        PlayerCharacter playerCharacter = new PlayerCharacter();
         PrinterService printerService = new PrinterService();
+        DialogueService dialogueService = new DialogueService();
 
 
         while (runGame) {
@@ -49,13 +55,12 @@ public class Game {
         String[] areaList = {"Main Road", "Bazaar", "Tavern", "Church", "Castle Gates"};
         String[] mainMenu = {"Move", "Look", "Talk", "Check Inventory", "Check Skills", "Check Status"};
         boolean inLevelOne = true;
+        printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
+                "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
+                "for any work available from the locals. You look to see what's around.");
 
         while (inLevelOne) {
-            printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
-                    "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
-                    "for any work available from the locals. You look to see what's around.");
             printerService.createWhiteSpace(1);
-
             for (int i = 0; i < mainMenu.length; i++) {
                 System.out.println((i + 1) + " " + mainMenu[i]);
             }
@@ -64,7 +69,6 @@ public class Game {
             boolean inMainMenu = true;
             while (inMainMenu) {
                 if (mainMenuChoice == 1) {
-
                     int counter = 1;
                     System.out.println("Please choose an option to move to.");
                     printerService.createWhiteSpace(1);
@@ -75,17 +79,46 @@ public class Game {
                     int choiceForMove = printerService.getUserNumberInput();
                     currentArea = locationService.loadMovingChoice(choiceForMove);
                     System.out.println(currentArea.getOpeningText());
+                    break;
+
                 } else if (mainMenuChoice == 2) {
                     printerService.createWhiteSpace(2);
                     diceAndCoinService.rollForLook(currentArea);
                     printerService.createWhiteSpace(1);
                     break;
+
                 } else if (mainMenuChoice == 3) {
                     boolean inTalkMenu = true;
                     while (inTalkMenu) {
-                        //need to create menu logic
-                        //Going to iterate over the arraylist of possible npcs, grabbing the name for options to the player
-                        //then matching the possible dialogue to responses to the player to simulate conversation.
+                        DialogueService dialogueService = new DialogueService();
+                        if (currentArea.getAreaName().equals("Church")) {
+
+                            System.out.println("You see a priest and a monk that don't look too busy. Which should I talk to?");
+                            System.out.println("1 ) The Priest.");
+                            System.out.println("2 ) The Monk.");
+                            int talkChoiceChurch = printerService.getUserNumberInput();
+
+                            if (talkChoiceChurch == 1) {
+                                dialogueService.executePriestConversation();
+                                inTalkMenu = false;
+                            } else if (talkChoiceChurch == 2) {
+                                dialogueService.executeBrotherCaineConversation();
+                                playerCharacter.getInventory().add(itemCreator.createMinorPotion());
+                                playerCharacter.getInventory().add(itemCreator.createMinorPotion());
+
+                                System.out.println("You have received 2 Minor Potions.");
+                                printerService.createWhiteSpace(2);
+                                printerService.anythingToContinue();
+                                inTalkMenu = false;
+                            } else {
+                                System.out.println("That is not a valid option...");
+                                printerService.anythingToContinue();
+                            }
+                        } else {
+                            System.out.println("There's no one here to talk to.");
+                            printerService.anythingToContinue();
+                            inTalkMenu = false;
+                        }
                     }
                 }
             }

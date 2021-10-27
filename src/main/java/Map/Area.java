@@ -59,4 +59,5 @@ public class Area {
     public void setNpcList(List<NonPlayerCharacter> nonPlayerCharacterList) {
         this.nonPlayerCharacterList = nonPlayerCharacterList;
     }
+
 }

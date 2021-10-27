@@ -103,7 +103,7 @@ public class LevelLoader {
         npcResponsesBartender.add("Just a rat problem out at the western farm.. I think they were looking for someone to take them out.");
         npcResponsesBartender.add("Great. I'm sure it will be greatly appreciated. You'll have to go out the castle gates in order\n" +
                 "to get there. Here, take this pass so you can exit the gates.");
-        //Need to remember to create the gate pass check
+        //Gate pass Check created in story checks package
         npcResponsesBartender.add("No, not that I know of, stranger. Try talking to that shady character over there in the corner.");
         bartender.setResponsesToUser(npcResponsesBartender);
 
@@ -163,11 +163,11 @@ public class LevelLoader {
         brotherCaine.setName("Monk");
 
         List<String> brotherCaineResponses = new ArrayList<>();
-        brotherCaineResponses.add("Just a rat problem out at the western farm.. I think they were looking for someone to take them out.");
-        brotherCaineResponses.add("Great. I'm sure it will be greatly appreciated. You'll have to go out the castle gates in order\n" +
-                "to get there. Here, take this pass so you can exit the gates.");
-        //Need to remember to create the gate pass check
-        brotherCaineResponses.add("No, not that I know of, stranger. Try talking to that shady character over there in the corner.");
+        brotherCaineResponses.add("Yes, my son. There is an ancient tome I have been searching for. It is a book of magic given to us\n" +
+                "by Eldath, and needs to be brought to the church. Are you ready for this task?");
+        brotherCaineResponses.add("Wonderful. I will give you some healing items for your journey.");
+        brotherCaineResponses.add("Go now to the castle gates, you can use this gate pass in order to get there. You will find a mural with the secret map\n" +
+                "to where it is being held. Time is of the essense. There are many after this tome.");
         brotherCaine.setResponsesToUser(brotherCaineResponses);
 
         List<String> playerDialogueBrotherCaine = new ArrayList<>();
