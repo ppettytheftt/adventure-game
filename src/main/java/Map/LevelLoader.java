@@ -1,6 +1,6 @@
 package Map;
 
-import Characters.Npc;
+import Characters.NonPlayerCharacter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,7 @@ public class LevelLoader {
         Area tavern = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        List<Npc> listOfNpcs = new ArrayList<>();
+        List<NonPlayerCharacter> listOfNpcs = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Church");
@@ -79,7 +79,7 @@ public class LevelLoader {
         tavern.setDiceForRolls(4);
         tavern.setPossibleLookOutcomes(lookOutcomes);
 
-        Npc shadyCharacter = new Npc();
+        NonPlayerCharacter shadyCharacter = new NonPlayerCharacter();
         shadyCharacter.setName("Shady character");
 
         List<String> npcResponses = new ArrayList<>();
@@ -97,7 +97,7 @@ public class LevelLoader {
         shadyCharacter.setPossibleDialogue(playerDialogue);
         listOfNpcs.add(shadyCharacter);
 
-        Npc bartender = new Npc();
+        NonPlayerCharacter bartender = new NonPlayerCharacter();
         bartender.setName("Shady character");
 
         List<String> npcResponsesBartender = new ArrayList<>();
@@ -125,7 +125,7 @@ public class LevelLoader {
         Area church = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        List<Npc> listOfNpcs = new ArrayList<>();
+        List<NonPlayerCharacter> listOfNpcs = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Tavern");
@@ -145,7 +145,7 @@ public class LevelLoader {
         church.setDiceForRolls(4);
         church.setPossibleLookOutcomes(lookOutcomes);
 
-        Npc priest = new Npc();
+        NonPlayerCharacter priest = new NonPlayerCharacter();
         priest.setName("Priest");
 
         List<String> npcResponses = new ArrayList<>();
@@ -160,7 +160,7 @@ public class LevelLoader {
         priest.setPossibleDialogue(playerDialogue);
         listOfNpcs.add(priest);
 
-        Npc brotherCaine = new Npc();
+        NonPlayerCharacter brotherCaine = new NonPlayerCharacter();
         brotherCaine.setName("Monk");
 
         List<String> brotherCaineResponses = new ArrayList<>();
@@ -188,7 +188,7 @@ public class LevelLoader {
         Area castleGates = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        List<Npc> listOfNpcs = new ArrayList<>();
+        List<NonPlayerCharacter> listOfNpcs = new ArrayList<>();
         areaList.add("Main Road");
         areaList.add("Bazaar");
         areaList.add("Tavern");
@@ -208,7 +208,7 @@ public class LevelLoader {
         castleGates.setDiceForRolls(4);
         castleGates.setPossibleLookOutcomes(lookOutcomes);
 
-        Npc gateGuard = new Npc();
+        NonPlayerCharacter gateGuard = new NonPlayerCharacter();
         gateGuard.setName("Gate Guard");
 
         List<String> npcResponses = new ArrayList<>();

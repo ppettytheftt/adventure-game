@@ -37,10 +37,7 @@ public class Game {
                 System.out.println("Please Rerun The Game");
                 runGame = false;
             }
-
             loadLevelOne();
-
-
         }
     }
 
