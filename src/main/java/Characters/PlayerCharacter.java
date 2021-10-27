@@ -1,6 +1,9 @@
 package Characters;
 
 import BattleMechanics.Spell;
+import Inventory.Item;
+
+import java.util.List;
 
 public class PlayerCharacter {
     int maxHp;
@@ -19,6 +22,7 @@ public class PlayerCharacter {
     String name;
     CharacterClass characterClass;
     String currentStatusEffect;
+    List<Item> inventory;
 
 
     public int getMaxHp() {
@@ -147,5 +151,13 @@ public class PlayerCharacter {
 
     public void setCharacterClass(CharacterClass characterClass) {
         this.characterClass = characterClass;
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
     }
 }
