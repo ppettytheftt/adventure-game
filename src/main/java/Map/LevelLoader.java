@@ -171,10 +171,8 @@ public class LevelLoader {
         brotherCaine.setResponsesToUser(brotherCaineResponses);
 
         List<String> playerDialogueBrotherCaine = new ArrayList<>();
-        playerDialogueBrotherCaine.add("Barkeep.. any word on work around here?");
-        playerDialogueBrotherCaine.add("I can look into it.");
-        playerDialogueBrotherCaine.add("Rats? Is there anything else that needs done?");
-        playerDialogueBrotherCaine.add("Thanks for your help.");
+        playerDialogueBrotherCaine.add("Hello.. are you Brother Caine? I'm looking for work.");
+        playerDialogueBrotherCaine.add("I will bring back the tome.");
         brotherCaine.setPossibleDialogue(playerDialogueBrotherCaine);
         listOfNpcs.add(brotherCaine);
 
