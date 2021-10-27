@@ -14,7 +14,6 @@ public class Game {
         boolean runGame = true;
         PlayerCharacter playerCharacter = new PlayerCharacter();
         PrinterService printerService = new PrinterService();
-        String[] classArray = {"thief", "knight", "spell blade"};
 
 
         while (runGame) {
@@ -27,7 +26,8 @@ public class Game {
                     nameSet = true;
                 }
             }
-            printerService.printMenuChoices(classArray);
+
+            printerService.printCharacterClassNamesAndDescriptions();
             playerCharacter.setCharacterClass(characterService.getCharacterClassFromUserChoice(printerService.getUserNumberInput()));
 
             printerService.printHeading("You have chosen the " + playerCharacter.getCharacterClass().getClassName());

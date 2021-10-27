@@ -1,5 +1,8 @@
 package MiscServices;
 
+import Characters.CharacterClass;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class PrinterService {
@@ -31,6 +34,17 @@ public class PrinterService {
     public void createWhiteSpace(int numberOfLines){
         for (int i = 0; i < numberOfLines; i++){
             System.out.println(" ");
+        }
+    }
+
+    public void printCharacterClassNamesAndDescriptions() {
+        ClassService classService = new ClassService();
+        List<CharacterClass> classesToPrint =  classService.getAllClassesForPrint();
+        int counter = 0;
+
+        for (CharacterClass characterClass :classesToPrint) {
+            System.out.println(counter + ")  " + characterClass.getClassName() +
+                    " * " + characterClass.getDescription() + " * ");
         }
     }
 
