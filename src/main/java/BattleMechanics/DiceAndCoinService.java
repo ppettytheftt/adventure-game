@@ -1,5 +1,8 @@
 package BattleMechanics;
 
+import Map.Area;
+
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DiceAndCoinService {
@@ -25,5 +28,13 @@ public class DiceAndCoinService {
 
     public int flipACoin() {
         return ThreadLocalRandom.current().nextInt(1, 3);
+    }
+
+    public void rollForLook(Area currentArea) {
+        DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
+        List<String> lookList = currentArea.getPossibleLookOutcomes();
+        int diceRoll = diceAndCoinService.rollDice(currentArea.getDiceForRolls());
+
+        System.out.println(lookList.get(diceRoll - 1));
     }
 }

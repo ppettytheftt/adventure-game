@@ -1,35 +1,38 @@
 import BattleMechanics.DiceAndCoinService;
-import Characters.CharacterClass;
 import Characters.PlayerCharacter;
 import Map.Area;
+import Map.LevelLoader;
+import MiscServices.CharacterService;
+import MiscServices.LocationService;
 import MiscServices.PrinterService;
 
-import java.util.List;
-
-import static Map.LevelLoader.*;
 
 public class Game {
 
+    private static LevelLoader levelLoader;
+    private static LocationService locationService;
+
 
     public static void startGame() {
+        CharacterService characterService = new CharacterService();
         boolean runGame = true;
         PlayerCharacter playerCharacter = new PlayerCharacter();
-        DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
         PrinterService printerService = new PrinterService();
         String[] classArray = {"thief", "knight", "spell blade"};
+
 
         while (runGame) {
             boolean nameSet = false;
             printerService.printHeading("WELCOME TO THE GAME, PLEASE EMAIL ME WITH ANY COMMENTS AT PPETTYTHEFTT@GMAIL.COM");
 
-            while(!nameSet){
+            while (!nameSet) {
                 playerCharacter.setName(printerService.getUserTextInput("Please name your character :"));
-                if(playerCharacter.getName() != null){
+                if (playerCharacter.getName() != null) {
                     nameSet = true;
                 }
             }
-            printClasses(classArray);
-            playerCharacter.setCharacterClass(getCharacterClass(printerService.getUserNumberInput()));
+            printerService.printMenuChoices(classArray);
+            playerCharacter.setCharacterClass(characterService.getCharacterClassFromUserChoice(printerService.getUserNumberInput()));
 
             printerService.printHeading("You have chosen the " + playerCharacter.getCharacterClass().getClassName());
             String classContinueChoice = printerService.getUserTextInput("Do you wish to continue?");
@@ -42,9 +45,9 @@ public class Game {
     }
 
     private static void loadLevelOne() {
-
+        DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
         PrinterService printerService = new PrinterService();
-        Area currentArea = loadMainRoad();
+        Area currentArea = levelLoader.loadMainRoad();
         String[] areaList = {"Main Road", "Bazaar", "Tavern", "Church", "Castle Gates"};
         String[] mainMenu = {"Move", "Look", "Talk", "Check Inventory", "Check Skills", "Check Status"};
         boolean inLevelOne = true;
@@ -71,10 +74,10 @@ public class Game {
                         counter++;
                     }
                     int choiceForMove = printerService.getUserNumberInput();
-                    currentArea = loadMovingChoice(choiceForMove);
+                    currentArea = locationService.loadMovingChoice(choiceForMove);
                     System.out.println(currentArea.getOpeningText());
                 } else if (mainMenuChoice == 2) {
-                    rollForLook(currentArea);
+                    diceAndCoinService.rollForLook(currentArea);
                 } else if (mainMenuChoice == 3) {
                     boolean inTalkMenu = true;
                     while (inTalkMenu) {
@@ -85,70 +88,5 @@ public class Game {
                 }
             }
         }
-    }
-
-    private static Area loadMovingChoice(int choiceForMove) {
-
-        Area newCurrentArea = new Area();
-        switch (choiceForMove) {
-            case 1:
-                newCurrentArea = loadMainRoad();
-                break;
-
-            case 2:
-                newCurrentArea = loadBazaar();
-                break;
-
-            case 3:
-                newCurrentArea = loadTavern();
-                break;
-
-            case 4:
-                newCurrentArea = loadChurch();
-                break;
-
-            case 5:
-                newCurrentArea = loadCastleGates();
-                break;
-        }
-        return newCurrentArea;
-    }
-
-    private static CharacterClass getCharacterClass(int playerChoice) {
-        CharacterClass characterClass = new CharacterClass();
-
-        switch (playerChoice) {
-            case 1:
-                characterClass.setClassName("thief");
-                characterClass.setDescription("");
-                characterClass.setMainAttribute("dexterity");
-                break;
-
-            case 2:
-                characterClass.setClassName("knight");
-                characterClass.setDescription("");
-                characterClass.setMainAttribute("strength");
-                break;
-            case 3:
-                characterClass.setClassName("spell blade");
-                characterClass.setDescription("");
-                characterClass.setMainAttribute("intelligence");
-                break;
-        }
-        return characterClass;
-    }
-
-    private static void printClasses(String[] classArray) {
-        for (int i = 0; i < classArray.length; i++) {
-            System.out.println(i + 1 + " ) " + classArray[i]);
-        }
-    }
-
-    private static void rollForLook(Area currentArea) {
-        DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
-        List<String> lookList = currentArea.getPossibleLookOutcomes();
-        int diceRoll = diceAndCoinService.rollDice(currentArea.getDiceForRolls());
-
-        System.out.println(lookList.get(diceRoll -1));
     }
 }

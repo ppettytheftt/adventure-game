@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LevelLoader {
 
-    public static Area loadMainRoad() {
+    public Area loadMainRoad() {
         Area mainRoad = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
@@ -32,7 +32,7 @@ public class LevelLoader {
         return mainRoad;
     }
 
-    public static Area loadBazaar() {
+    public Area loadBazaar() {
         Area bazaar = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
@@ -57,7 +57,7 @@ public class LevelLoader {
         return bazaar;
     }
 
-    public static Area loadTavern() {
+    public Area loadTavern() {
         Area tavern = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
@@ -121,7 +121,7 @@ public class LevelLoader {
         return tavern;
     }
 
-    public static Area loadChurch() {
+    public Area loadChurch() {
         Area church = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
@@ -184,7 +184,7 @@ public class LevelLoader {
         return church;
     }
 
-    public static Area loadCastleGates() {
+    public Area loadCastleGates() {
         Area castleGates = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
@@ -227,4 +227,6 @@ public class LevelLoader {
 
         return castleGates;
     }
+
+
 }
