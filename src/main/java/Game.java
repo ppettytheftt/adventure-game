@@ -1,20 +1,31 @@
 import BattleMechanics.DiceAndCoinService;
 import Characters.PlayerCharacter;
+import Inventory.Item;
+import Inventory.ItemCreator;
+import Inventory.Money;
 import Map.Area;
 import Map.LevelLoader;
 import MiscServices.CharacterService;
+import MiscServices.DialogueService;
 import MiscServices.LocationService;
 import MiscServices.PrinterService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Game {
+    private static final PlayerCharacter playerCharacter = new PlayerCharacter();
+    public static final ItemCreator itemCreator = new ItemCreator();
 
     public static void startGame() {
+
         CharacterService characterService = new CharacterService();
         boolean runGame = true;
-        PlayerCharacter playerCharacter = new PlayerCharacter();
         PrinterService printerService = new PrinterService();
+        DialogueService dialogueService = new DialogueService();
 
+        playerCharacter.setInventory(createStartingInventory());
 
         while (runGame) {
             boolean nameSet = false;
@@ -49,13 +60,12 @@ public class Game {
         String[] areaList = {"Main Road", "Bazaar", "Tavern", "Church", "Castle Gates"};
         String[] mainMenu = {"Move", "Look", "Talk", "Check Inventory", "Check Skills", "Check Status"};
         boolean inLevelOne = true;
+        printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
+                "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
+                "for any work available from the locals. You look to see what's around.");
 
         while (inLevelOne) {
-            printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
-                    "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
-                    "for any work available from the locals. You look to see what's around.");
             printerService.createWhiteSpace(1);
-
             for (int i = 0; i < mainMenu.length; i++) {
                 System.out.println((i + 1) + " " + mainMenu[i]);
             }
@@ -64,7 +74,6 @@ public class Game {
             boolean inMainMenu = true;
             while (inMainMenu) {
                 if (mainMenuChoice == 1) {
-
                     int counter = 1;
                     System.out.println("Please choose an option to move to.");
                     printerService.createWhiteSpace(1);
@@ -75,20 +84,79 @@ public class Game {
                     int choiceForMove = printerService.getUserNumberInput();
                     currentArea = locationService.loadMovingChoice(choiceForMove);
                     System.out.println(currentArea.getOpeningText());
+                    break;
+
                 } else if (mainMenuChoice == 2) {
                     printerService.createWhiteSpace(2);
                     diceAndCoinService.rollForLook(currentArea);
                     printerService.createWhiteSpace(1);
                     break;
+
                 } else if (mainMenuChoice == 3) {
-                    boolean inTalkMenu = true;
-                    while (inTalkMenu) {
-                        //need to create menu logic
-                        //Going to iterate over the arraylist of possible npcs, grabbing the name for options to the player
-                        //then matching the possible dialogue to responses to the player to simulate conversation.
+                    DialogueService dialogueService = new DialogueService();
+                    if (currentArea.getAreaName().equals("Church")) {
+
+                        System.out.println("You see a priest and a monk that don't look too busy. Which should I talk to?");
+                        System.out.println("1 ) The Priest.");
+                        System.out.println("2 ) The Monk.");
+                        int talkChoiceChurch = printerService.getUserNumberInput();
+
+                        if (talkChoiceChurch == 1) {
+                            dialogueService.executePriestConversation();
+                            break;
+                        } else if (talkChoiceChurch == 2) {
+                            dialogueService.executeBrotherCaineConversation();
+                            List<Item> itemsToAddToInventory = playerCharacter.getInventory();
+                            itemsToAddToInventory.add(itemCreator.createMinorPotion());
+                            itemsToAddToInventory.add(itemCreator.createMinorPotion());
+                            playerCharacter.setInventory(itemsToAddToInventory);
+
+
+                            System.out.println("You have received 2 Minor Potions.");
+                            printerService.createWhiteSpace(2);
+                            printerService.anythingToContinue();
+                            break;
+                        } else {
+                            System.out.println("That is not a valid option...");
+                            printerService.anythingToContinue();
+                            break;
+                        }
+                    } else {
+                        System.out.println("There's no one here to talk to.");
+                        printerService.anythingToContinue();
+                        break;
                     }
                 }
             }
         }
     }
+
+    private static List<Item> createStartingInventory(){
+        List<Item> listToAdd = new ArrayList<>();
+        Item locket = new Item();
+        Item water = new Item();
+        Money locketValue = new Money();
+        locketValue.setGold(10);
+        locketValue.setSilver(9);
+        locketValue.setCopper(8);
+
+        Money waterValue = new Money();
+        waterValue.setCopper(2);
+
+        locket.setName("Locket");
+        locket.setDescription("It seems valuable. I can't seem to remember who's pictured inside.");
+        locket.setValue(locketValue);
+        locket.setCanBeSold(true);
+
+        water.setName("Water");
+        water.setDescription("A small gourd containing water. Good for curing burn status.");
+        water.setValue(waterValue);
+        water.setCanBeSold(true);
+
+        listToAdd.add(locket);
+        listToAdd.add(water);
+
+        return listToAdd;
+    }
 }
+

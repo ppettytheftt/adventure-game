@@ -40,11 +40,25 @@ public class PrinterService {
     public void printCharacterClassNamesAndDescriptions() {
         ClassService classService = new ClassService();
         List<CharacterClass> classesToPrint =  classService.getAllClassesForPrint();
-        int counter = 0;
+        int counter = 1;
 
         for (CharacterClass characterClass :classesToPrint) {
+            createWhiteSpace(1);
             System.out.println(counter + ")  " + characterClass.getClassName() +
-                    " * " + characterClass.getDescription() + " * ");
+                    "\n * " + characterClass.getDescription() + " * ");
+            counter++;
+        }
+    }
+
+    public void anythingToContinue() {
+        boolean userEnteredAnything = false;
+        PrinterService printerService = new PrinterService();
+
+        while (!userEnteredAnything) {
+            printerService.createWhiteSpace(1);
+            printerService.getUserTextInput("** Enter any text to continue. **");
+
+            userEnteredAnything = true;
         }
     }
 
