@@ -24,12 +24,18 @@ public class PrinterService {
     public void printMenuChoices(String[] classArray) {
         for (int i = 0; i < classArray.length; i++) {
             System.out.println(i + 1 + " ) " + classArray[i]);
-            lineSeparator(1);
+        }
+        lineSeparator(1);
+    }
+
+    public void createWhiteSpace(int numberOfLines){
+        for (int i = 0; i < numberOfLines; i++){
+            System.out.println(" ");
         }
     }
 
     private void lineSeparator(int lines) {
-        for (int i = 0; i < lines + 1; i++) {
+        for (int i = 0; i < lines; i++) {
             System.out.println("------***************************************************************------");
         }
     }

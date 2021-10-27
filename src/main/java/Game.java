@@ -9,10 +9,6 @@ import MiscServices.PrinterService;
 
 public class Game {
 
-    private static LevelLoader levelLoader;
-    private static LocationService locationService;
-
-
     public static void startGame() {
         CharacterService characterService = new CharacterService();
         boolean runGame = true;
@@ -45,6 +41,8 @@ public class Game {
     }
 
     private static void loadLevelOne() {
+        LevelLoader levelLoader = new LevelLoader();
+        LocationService locationService = new LocationService();
         DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
         PrinterService printerService = new PrinterService();
         Area currentArea = levelLoader.loadMainRoad();
@@ -56,12 +54,12 @@ public class Game {
             printerService.printHeading("You are walking down the main road in the Reindt Stronghold, a massive castle deep\n" +
                     "in the heart of the main continent. You currently don't have any objectives and are looking\n" +
                     "for any work available from the locals. You look to see what's around.");
+            printerService.createWhiteSpace(1);
 
             for (int i = 0; i < mainMenu.length; i++) {
                 System.out.println((i + 1) + " " + mainMenu[i]);
             }
             int mainMenuChoice = printerService.getUserNumberInput();
-
 
             boolean inMainMenu = true;
             while (inMainMenu) {
@@ -69,6 +67,7 @@ public class Game {
 
                     int counter = 1;
                     System.out.println("Please choose an option to move to.");
+                    printerService.createWhiteSpace(1);
                     for (String area : areaList) {
                         System.out.println(counter + " )  " + area);
                         counter++;
@@ -77,7 +76,10 @@ public class Game {
                     currentArea = locationService.loadMovingChoice(choiceForMove);
                     System.out.println(currentArea.getOpeningText());
                 } else if (mainMenuChoice == 2) {
+                    printerService.createWhiteSpace(2);
                     diceAndCoinService.rollForLook(currentArea);
+                    printerService.createWhiteSpace(1);
+                    break;
                 } else if (mainMenuChoice == 3) {
                     boolean inTalkMenu = true;
                     while (inTalkMenu) {
