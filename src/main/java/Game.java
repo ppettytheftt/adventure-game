@@ -121,6 +121,8 @@ public class Game {
                             printerService.anythingToContinue();
                             break;
                         }
+                    } else if(currentArea.getAreaName().equals("Castle Gate")) {
+                            dialogueService.executeGateGuardConversation(playerCharacter);
                     } else {
                         System.out.println("There's no one here to talk to.");
                         printerService.anythingToContinue();
@@ -131,7 +133,7 @@ public class Game {
         }
     }
 
-    private static List<Item> createStartingInventory(){
+    private static List<Item> createStartingInventory() {
         List<Item> listToAdd = new ArrayList<>();
         Item locket = new Item();
         Item water = new Item();

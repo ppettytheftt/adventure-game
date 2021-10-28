@@ -1,7 +1,9 @@
 package MiscServices;
 
 import Characters.NonPlayerCharacter;
+import Characters.PlayerCharacter;
 import Map.Area;
+import StoryChecks.LevelOneStoryCheck;
 
 import java.util.List;
 
@@ -41,6 +43,30 @@ public class DialogueService {
         System.out.println(brotherCaine.getName() + " : " + brotherCaineDialogue.get(1));
         System.out.println(brotherCaine.getName() + " : " + brotherCaineDialogue.get(2));
         endConversation();
+    }
+
+    public void executeGateGuardConversation(PlayerCharacter playerCharacter) {
+        LevelOneStoryCheck levelOneStoryCheck = new LevelOneStoryCheck();
+        List<Area> areaList = locationService.getAllAreasLevelOne();
+        NonPlayerCharacter gateGuard = areaList.get(4).getNpcList().get(0);
+
+        List<String> gateGuardResponses = gateGuard.getResponsesToUser();
+        List<String> playerDialogue = gateGuard.getPossibleDialogue();
+
+        System.out.println(playerDialogue.get(0));
+        System.out.println(gateGuard.getName() + " : " + gateGuardResponses.get(0));
+        printerService.createWhiteSpace(1);
+        boolean checkStatus = levelOneStoryCheck.gatePassCheck(playerCharacter);
+        continueConversation();
+        if (checkStatus) {
+            System.out.println(gateGuardResponses.get(2));
+            printerService.createWhiteSpace(1);
+            endConversation();
+        } else {
+            System.out.println(playerDialogue.get(1));
+            System.out.println(gateGuardResponses.get(1));
+            endConversation();
+        }
     }
 
     private static void continueConversation() {

@@ -210,13 +210,13 @@ public class LevelLoader {
 
         List<String> npcResponses = new ArrayList<>();
         npcResponses.add("Halt. Do have your gate pass?");
-        //if not, you don't pass, if you do you can.
         npcResponses.add("You cannot pass, Stranger. With current threats to the stronghold, we are locked down.");
+        npcResponses.add("Okay, you may pass. Please be careful out there.. you don't know what you might find.");
         gateGuard.setResponsesToUser(npcResponses);
 
         List<String> playerDialogue = new ArrayList<>();
         playerDialogue.add("Hello, I'd like to pass.");
-        playerDialogue.add("Well, okay.");
+        playerDialogue.add("No... I don't. is there any way I can get through?");
         gateGuard.setPossibleDialogue(playerDialogue);
         listOfNpcs.add(gateGuard);
 
