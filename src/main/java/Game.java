@@ -23,7 +23,6 @@ public class Game {
         CharacterService characterService = new CharacterService();
         boolean runGame = true;
         PrinterService printerService = new PrinterService();
-        DialogueService dialogueService = new DialogueService();
 
         playerCharacter.setInventory(createStartingInventory());
 
