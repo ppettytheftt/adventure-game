@@ -20,6 +20,15 @@ In github, you will go to the project. There should be a button that pops up aut
 comments add a brief description as to what your branch is doing for the code (such as what feature you are adding in).  When the pull request is made, we can all  
 see what changes are being made and review them. This way we can all look and see if there are easier or more optimized ways to do things.  
 
+## Project Board
+
+The project board located under the projects tab has kanban style board with what needs to be done. We can do our planning and everything on that board. This  
+board has all of the issues listed (under the issues tab) that need to be taken care of. Pull requests can be tagged on these issues so that they will automatically  
+move through the board as they are completed (some columns are automated). For any questions about the system you can add a new Issue and add a question tag to  
+that issue. I can go on and answer any questions about how the program works or we can use this to ask for help with how to complete an issue. If you have any  
+questions about the project board or how to use it, don't be afraid to reach out to me.
+Collaboration is the name of the game!
+
 ### Have fun!
 
 I just wanted to make a simple project to work on with a few friends and any ideas for collaborating on I am definitely open to. :) I **LOVE** you guys!!!
