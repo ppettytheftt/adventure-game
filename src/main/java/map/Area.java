@@ -1,6 +1,6 @@
-package Map;
+package map;
 
-import Characters.NonPlayerCharacter;
+import characters.NonPlayerCharacter;
 
 import java.util.List;
 
@@ -11,6 +11,9 @@ public class Area {
     private int diceForRolls;
     private List<String> possibleLookOutcomes;
     private List<NonPlayerCharacter> nonPlayerCharacterList;
+
+    //For the areas maybe we can put the possible enemy list here, but that depends on how we want to go about enemies.
+    // this would work if we wanted to have set encounters, or random encounters.
 
     public String getAreaName() {
         return areaName;

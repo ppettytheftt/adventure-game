@@ -1,10 +1,9 @@
-package MiscServices;
+package misc_services;
 
-import Characters.CharacterClass;
+import characters.CharacterClass;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.LinkedTransferQueue;
 
 public class ClassService {
     private static final String[] classNames = {"Thief", "Knight", "Spellblade"};

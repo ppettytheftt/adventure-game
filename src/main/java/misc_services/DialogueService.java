@@ -1,9 +1,9 @@
-package MiscServices;
+package misc_services;
 
-import Characters.NonPlayerCharacter;
-import Characters.PlayerCharacter;
-import Map.Area;
-import StoryChecks.LevelOneStoryCheck;
+import characters.NonPlayerCharacter;
+import characters.PlayerCharacter;
+import map.Area;
+import story_checks.LevelOneStoryCheck;
 
 import java.util.List;
 

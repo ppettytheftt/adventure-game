@@ -1,7 +1,7 @@
-package Characters;
+package characters;
 
-import BattleMechanics.Spell;
-import Inventory.Item;
+import inventory.Item;
+import inventory.Money;
 
 import java.util.List;
 
@@ -22,6 +22,7 @@ public class PlayerCharacter {
     String name;
     CharacterClass characterClass;
     String currentStatusEffect;
+    Money money;
     List<Item> inventory;
 
 
@@ -159,5 +160,13 @@ public class PlayerCharacter {
 
     public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public Money getMoney() {
+        return money;
+    }
+
+    public void setMoney(Money money) {
+        this.money = money;
     }
 }

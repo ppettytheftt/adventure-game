@@ -1,6 +1,4 @@
-package Characters;
-
-import BattleMechanics.DiceAndCoinService;
+package characters;
 
 public class EnemyCharacter{
 

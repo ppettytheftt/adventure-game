@@ -1,6 +1,6 @@
-package BattleMechanics;
+package battle_mechanics;
 
-import Map.Area;
+import map.Area;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;

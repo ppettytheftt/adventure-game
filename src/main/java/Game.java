@@ -1,14 +1,14 @@
-import BattleMechanics.DiceAndCoinService;
-import Characters.PlayerCharacter;
-import Inventory.Item;
-import Inventory.ItemCreator;
-import Inventory.Money;
-import Map.Area;
-import Map.LevelLoader;
-import MiscServices.CharacterService;
-import MiscServices.DialogueService;
-import MiscServices.LocationService;
-import MiscServices.PrinterService;
+import battle_mechanics.DiceAndCoinService;
+import characters.PlayerCharacter;
+import inventory.Item;
+import inventory.ItemCreator;
+import inventory.Money;
+import map.Area;
+import map.LevelOneLoader;
+import misc_services.CharacterService;
+import misc_services.DialogueService;
+import misc_services.LocationService;
+import misc_services.PrinterService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class Game {
 
         while (runGame) {
             boolean nameSet = false;
-            printerService.printHeading("WELCOME TO THE GAME, PLEASE EMAIL ME WITH ANY COMMENTS AT PPETTYTHEFTT@GMAIL.COM");
+            printerService.printHeading("WELCOME TO THE GAME, PLEASE EMAIL ME WITH ANY COMMENTS OR QUESTIONS AT\n PPETTYTHEFTT@GMAIL.COM");
 
             while (!nameSet) {
                 playerCharacter.setName(printerService.getUserTextInput("Please name your character :"));
@@ -51,11 +51,11 @@ public class Game {
     }
 
     private static void loadLevelOne() {
-        LevelLoader levelLoader = new LevelLoader();
+        LevelOneLoader levelOneLoader = new LevelOneLoader();
         LocationService locationService = new LocationService();
         DiceAndCoinService diceAndCoinService = new DiceAndCoinService();
         PrinterService printerService = new PrinterService();
-        Area currentArea = levelLoader.loadMainRoad();
+        Area currentArea = levelOneLoader.loadMainRoad();
         String[] areaList = {"Main Road", "Bazaar", "Tavern", "Church", "Castle Gates"};
         String[] mainMenu = {"Move", "Look", "Talk", "Check Inventory", "Check Skills", "Check Status"};
         boolean inLevelOne = true;

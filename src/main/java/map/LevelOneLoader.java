@@ -1,10 +1,13 @@
-package Map;
+package map;
 
-import Characters.NonPlayerCharacter;
+import characters.NonPlayerCharacter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LevelLoader {
+public class LevelOneLoader {
+
+    // Maybe for the level loaders, constants would be better to do than adding the strings over and over. I downloaded
+    // a linter and it's making me feel guilty for not being lazy and effective with my coding. :(
 
     public Area loadMainRoad() {
         Area mainRoad = new Area();
@@ -103,7 +106,6 @@ public class LevelLoader {
         npcResponsesBartender.add("Just a rat problem out at the western farm.. I think they were looking for someone to take them out.");
         npcResponsesBartender.add("Great. I'm sure it will be greatly appreciated. You'll have to go out the castle gates in order\n" +
                 "to get there. Here, take this pass so you can exit the gates.");
-        //Gate pass Check created in story checks package
         npcResponsesBartender.add("No, not that I know of, stranger. Try talking to that shady character over there in the corner.");
         bartender.setResponsesToUser(npcResponsesBartender);
 
