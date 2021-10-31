@@ -26,7 +26,7 @@ The project board located under the projects tab has kanban style board with wha
 board has all of the issues listed (under the issues tab) that need to be taken care of. Pull requests can be tagged on these issues so that they will automatically  
 move through the board as they are completed (some columns are automated). For any questions about the system you can add a new Issue and add a question tag to  
 that issue. I can go on and answer any questions about how the program works or we can use this to ask for help with how to complete an issue. If you have any  
-questions about the project board or how to use it, don't be afraid to reach out to me.
+questions about the project board or how to use it, don't be afraid to reach out to me.  
 Collaboration is the name of the game!
 
 ### Have fun!
