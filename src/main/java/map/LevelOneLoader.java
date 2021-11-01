@@ -6,24 +6,28 @@ import java.util.List;
 
 public class LevelOneLoader {
 
-    // Maybe for the level loaders, constants would be better to do than adding the strings over and over. I downloaded
-    // a linter and it's making me feel guilty for not being lazy and effective with my coding. :(
+    private static final String BAZAAR_NAME = "Bazaar";
+    private static final String TAVERN_NAME = "Tavern";
+    private static final String CHURCH_NAME = "Church";
+    private static final String CASTLE_GATES_NAME = "Castle Gates";
+    private static final String MAIN_ROAD_NAME = "Main Road";
+    private static final String ASK_FOR_WORK = "I should ask around for work.";
 
     public Area loadMainRoad() {
         Area mainRoad = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        areaList.add("Bazaar");
-        areaList.add("Tavern");
-        areaList.add("Church");
-        areaList.add("Castle Gates");
+        areaList.add(BAZAAR_NAME);
+        areaList.add(TAVERN_NAME);
+        areaList.add(CHURCH_NAME);
+        areaList.add(CASTLE_GATES_NAME);
         lookOutcomes.add("Nothing really interesting around.");
         lookOutcomes.add("This is quite a large place. I wonder what's around.");
         lookOutcomes.add("The church bells are quite loud. I wonder if anyone there has any work?");
         lookOutcomes.add("The tavern seems like a good place to look for work. I'm sure there's a lot of shady characters\n" +
                 "needing a hand.");
 
-        mainRoad.setAreaName("Main Road");
+        mainRoad.setAreaName(MAIN_ROAD_NAME);
         mainRoad.setOpeningText("The main road of the Reindt Stronghold. You see the massive castle to the north, the \n" +
                 "castle gates to the south, the bazaar in the east, and a church and tavern to the west. There's\n" +
                 "a good amount of traffic on this road, not surprising as this stronghold is the capital of trade.");
@@ -38,17 +42,17 @@ public class LevelOneLoader {
         Area bazaar = new Area();
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
-        areaList.add("Main Road");
-        areaList.add("Tavern");
-        areaList.add("Church");
-        areaList.add("Castle Gates");
+        areaList.add(MAIN_ROAD_NAME);
+        areaList.add(TAVERN_NAME);
+        areaList.add(CHURCH_NAME);
+        areaList.add(CASTLE_GATES_NAME);
         lookOutcomes.add("There's A lot for sale here... as much as I wish I could buy, I need work first");
         lookOutcomes.add("This is quite a large place. I wonder what's around.");
         lookOutcomes.add("The church bells are quite loud. I wonder if anyone there has any work?");
         lookOutcomes.add("The tavern seems like a good place to look for work. I'm sure there's a lot of shady characters\n" +
                 "needing a hand.");
 
-        bazaar.setAreaName("Bazaar");
+        bazaar.setAreaName(BAZAAR_NAME);
         bazaar.setOpeningText("The bazaar of the Reindt Stronghold. There are many merchants lining the streets \n" +
                 "selling many different things here. Looks like there's nothing that would be too hard to find here.\n" +
                 "After I find some work I should look into upgrading my gear here.");
@@ -64,16 +68,16 @@ public class LevelOneLoader {
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
         List<NonPlayerCharacter> listOfNpcs = new ArrayList<>();
-        areaList.add("Main Road");
-        areaList.add("Bazaar");
-        areaList.add("Church");
-        areaList.add("Castle Gates");
+        areaList.add(MAIN_ROAD_NAME);
+        areaList.add(BAZAAR_NAME);
+        areaList.add(CHURCH_NAME);
+        areaList.add(CASTLE_GATES_NAME);
         lookOutcomes.add("It's quite noisy in here. Many patrons seem to be yelling over each other.");
         lookOutcomes.add("What did I just step in?");
         lookOutcomes.add("I can see a few people here who look like they might have some work.");
-        lookOutcomes.add("I should ask around for work.");
+        lookOutcomes.add(ASK_FOR_WORK);
 
-        tavern.setAreaName("Tavern");
+        tavern.setAreaName(TAVERN_NAME);
         tavern.setOpeningText("The tavern in the Reindt Stronghold. There are many people packed into the establishment \n" +
                 "talking over one another. I'm sure someone has to have some work around here. I see a few people sitting\n" +
                 "alone. Perhaps other travelers. I may be able to ask the bartender if anyone has been looking for work.");
@@ -127,18 +131,18 @@ public class LevelOneLoader {
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
         List<NonPlayerCharacter> listOfNpcs = new ArrayList<>();
-        areaList.add("Main Road");
-        areaList.add("Bazaar");
-        areaList.add("Tavern");
-        areaList.add("Castle Gates");
+        areaList.add(MAIN_ROAD_NAME);
+        areaList.add(BAZAAR_NAME);
+        areaList.add(TAVERN_NAME);
+        areaList.add(CASTLE_GATES_NAME);
         lookOutcomes.add("It's quiet, minus a few prayers being whispered and hymns being hummed. There's a\n" +
                 "few people working around here and a priest sitting on the bench in the front row.\n" +
                 "Maybe he has some work for me?");
         lookOutcomes.add("Nothing really interesting.");
         lookOutcomes.add("There's a man sitting in the front pew.. He seems pretty important. Maybe I should speak with him.");
-        lookOutcomes.add("I should ask around for work.");
+        lookOutcomes.add(ASK_FOR_WORK);
 
-        church.setAreaName("Church");
+        church.setAreaName(CHURCH_NAME);
         church.setOpeningText("The church in the Reindt Stronghold. It seems pretty empty for the most part with only a few \n" +
                 "people either sitting in the pews, or hard at work with the many day to day duties in the church. Maybe\n" +
                 "I can find someone here that has some work to offer me.");
@@ -188,18 +192,18 @@ public class LevelOneLoader {
         List<String> areaList = new ArrayList<>();
         List<String> lookOutcomes = new ArrayList<>();
         List<NonPlayerCharacter> listOfNpcs = new ArrayList<>();
-        areaList.add("Main Road");
-        areaList.add("Bazaar");
-        areaList.add("Tavern");
-        areaList.add("Church");
+        areaList.add(MAIN_ROAD_NAME);
+        areaList.add(BAZAAR_NAME);
+        areaList.add(TAVERN_NAME);
+        areaList.add(CHURCH_NAME);
         lookOutcomes.add("It's quiet, minus a few prayers being whispered and hymns being hummed. There's a\n" +
                 "few people working around here and a gateGuard sitting on the bench in the front row.\n" +
                 "Maybe he has some work for me?");
         lookOutcomes.add("Nothing really interesting.");
         lookOutcomes.add("There's a man sitting in the front pew.. He seems pretty important. Maybe I should speak with him.");
-        lookOutcomes.add("I should ask around for work.");
+        lookOutcomes.add(ASK_FOR_WORK);
 
-        castleGates.setAreaName("Castle Gates");
+        castleGates.setAreaName(CASTLE_GATES_NAME);
         castleGates.setOpeningText("The castleGates in the Reindt Stronghold. It seems pretty empty for the most part with only a few \n" +
                 "people either sitting in the pews, or hard at work with the many day to day duties in the castleGates. Maybe\n" +
                 "I can find someone here that has some work to offer me.");
