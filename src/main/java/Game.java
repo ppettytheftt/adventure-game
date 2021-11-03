@@ -28,7 +28,8 @@ public class Game {
 
         while (runGame) {
             boolean nameSet = false;
-            printerService.printHeading("WELCOME TO THE GAME, PLEASE EMAIL ME WITH ANY COMMENTS OR QUESTIONS AT\n PPETTYTHEFTT@GMAIL.COM");
+            printerService.printHeading("WELCOME TO THE GAME, PLEASE EMAIL ME WITH ANY COMMENTS OR QUESTIONS AT\n " +
+                    "                    PPETTYTHEFTT@GMAIL.COM");
 
             while (!nameSet) {
                 playerCharacter.setName(printerService.getUserTextInput("Please name your character :"));
@@ -37,12 +38,17 @@ public class Game {
                 }
             }
 
+            printerService.createWhiteSpace(10);
+            printerService.printHeading("Please Choose A Class :");
             printerService.printCharacterClassNamesAndDescriptions();
             playerCharacter.setCharacterClass(characterService.getCharacterClassFromUserChoice(printerService.getUserNumberInput()));
 
-            printerService.printHeading("You have chosen the " + playerCharacter.getCharacterClass().getClassName());
-            String classContinueChoice = printerService.getUserTextInput("Do you wish to continue?");
-            if (classContinueChoice.equals("no")) {
+            printerService.createWhiteSpace(10);
+            System.out.println("You have chosen the " + playerCharacter.getCharacterClass().getClassName() +".\n" +
+                    "Do you wish to continue?\n1 ) Yes\n2 ) No");
+            int classContinueChoice = printerService.getUserNumberInput();
+
+            if (classContinueChoice == 2) {
                 System.out.println("Please Rerun The Game");
                 runGame = false;
             }
@@ -74,7 +80,8 @@ public class Game {
             while (inMainMenu) {
                 if (mainMenuChoice == 1) {
                     int counter = 1;
-                    System.out.println("Please choose an option to move to.");
+                    printerService.createWhiteSpace(10);
+                    System.out.println("Where would you like to move?");
                     printerService.createWhiteSpace(1);
                     for (String area : areaList) {
                         System.out.println(counter + " )  " + area);
