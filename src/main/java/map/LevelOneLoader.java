@@ -29,8 +29,8 @@ public class LevelOneLoader {
 
         mainRoad.setAreaName(MAIN_ROAD_NAME);
         mainRoad.setOpeningText("The main road of the Reindt Stronghold. You see the massive castle to the north, the \n" +
-                "castle gates to the south, the bazaar in the east, and a church and tavern to the west. There's\n" +
-                "a good amount of traffic on this road, not surprising as this stronghold is the capital of trade.");
+                "castle gates to the south, the bazaar in the east, and a church and tavern to the west.\nThere's " +
+                "a good amount of traffic on this road, not surprising as this stronghold is the capital\nof trade.");
         mainRoad.setNextAreas(areaList);
         mainRoad.setDiceForRolls(4);
         mainRoad.setPossibleLookOutcomes(lookOutcomes);
@@ -46,15 +46,15 @@ public class LevelOneLoader {
         areaList.add(TAVERN_NAME);
         areaList.add(CHURCH_NAME);
         areaList.add(CASTLE_GATES_NAME);
-        lookOutcomes.add("There's A lot for sale here... as much as I wish I could buy, I need work first");
+        lookOutcomes.add("There's a lot for sale here... as much as I wish I could buy, I need work first");
         lookOutcomes.add("This is quite a large place. I wonder what's around.");
         lookOutcomes.add("The church bells are quite loud. I wonder if anyone there has any work?");
         lookOutcomes.add("The tavern seems like a good place to look for work. I'm sure there's a lot of shady characters\n" +
                 "needing a hand.");
 
         bazaar.setAreaName(BAZAAR_NAME);
-        bazaar.setOpeningText("The bazaar of the Reindt Stronghold. There are many merchants lining the streets \n" +
-                "selling many different things here. Looks like there's nothing that would be too hard to find here.\n" +
+        bazaar.setOpeningText("The bazaar of the Reindt Stronghold. There are many merchants lining the streets " +
+                "selling\nmany different things here. Looks like there's nothing that would be too hard to find here.\n" +
                 "After I find some work I should look into upgrading my gear here.");
         bazaar.setNextAreas(areaList);
         bazaar.setDiceForRolls(4);
@@ -78,9 +78,9 @@ public class LevelOneLoader {
         lookOutcomes.add(ASK_FOR_WORK);
 
         tavern.setAreaName(TAVERN_NAME);
-        tavern.setOpeningText("The tavern in the Reindt Stronghold. There are many people packed into the establishment \n" +
-                "talking over one another. I'm sure someone has to have some work around here. I see a few people sitting\n" +
-                "alone. Perhaps other travelers. I may be able to ask the bartender if anyone has been looking for work.");
+        tavern.setOpeningText("The tavern in the Reindt Stronghold. There are many people packed into the establishment " +
+                "talking over\none another. I'm sure someone has to have some work around here. I see a few people sitting\n" +
+                "alone. Perhaps other travelers. I may be able to ask the bartender if anyone has been\nlooking for work.");
         tavern.setNextAreas(areaList);
         tavern.setDiceForRolls(4);
         tavern.setPossibleLookOutcomes(lookOutcomes);
@@ -136,8 +136,8 @@ public class LevelOneLoader {
         areaList.add(TAVERN_NAME);
         areaList.add(CASTLE_GATES_NAME);
         lookOutcomes.add("It's quiet, minus a few prayers being whispered and hymns being hummed. There's a\n" +
-                "few people working around here and a priest sitting on the bench in the front row.\n" +
-                "Maybe he has some work for me?");
+                "few people working around here and a priest sitting on the bench in the front row." +
+                "\nMaybe he has some work for me?");
         lookOutcomes.add("Nothing really interesting.");
         lookOutcomes.add("There's a man sitting in the front pew.. He seems pretty important. Maybe I should speak with him.");
         lookOutcomes.add(ASK_FOR_WORK);
@@ -204,9 +204,9 @@ public class LevelOneLoader {
         lookOutcomes.add(ASK_FOR_WORK);
 
         castleGates.setAreaName(CASTLE_GATES_NAME);
-        castleGates.setOpeningText("The castleGates in the Reindt Stronghold. It seems pretty empty for the most part with only a few \n" +
-                "people either sitting in the pews, or hard at work with the many day to day duties in the castleGates. Maybe\n" +
-                "I can find someone here that has some work to offer me.");
+        castleGates.setOpeningText("The castle gates of the Reindt Stronghold. A very impressive structure. It looks like security\n" +
+                "has been fortified. I'm not sure what's got the guards on high alert, but I hope that I'm able\n to leave" +
+                "the stronghold if I need to.");
         castleGates.setNextAreas(areaList);
         castleGates.setDiceForRolls(4);
         castleGates.setPossibleLookOutcomes(lookOutcomes);
