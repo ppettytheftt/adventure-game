@@ -127,7 +127,7 @@ public class Game {
                             printerService.anythingToContinue();
                             break;
                         }
-                    } else if(currentArea.getAreaName().equals("Castle Gate")) {
+                    } else if(currentArea.getAreaName().contains("Castle")) {
                             dialogueService.executeGateGuardConversation(playerCharacter);
                     } else {
                         System.out.println("There's no one here to talk to.");

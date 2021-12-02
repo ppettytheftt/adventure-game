@@ -81,7 +81,11 @@ public class DialogueService {
     }
 
     private static void endConversation() {
-        printerService.createWhiteSpace(2);
-        printerService.getUserTextInput("** Enter anything to end the conversation. **");
+        boolean userEnteredAnything = false;
+        while(!userEnteredAnything) {
+            printerService.createWhiteSpace(2);
+            printerService.getUserTextInput("** Enter anything to end the conversation. **");
+            userEnteredAnything = true;
+        }
     }
 }
