@@ -5,7 +5,7 @@ import inventory.ItemCreator;
 import inventory.Money;
 import map.Area;
 import map.LevelOneLoader;
-import misc_services.CharacterService;
+import misc_services.ClassService;
 import misc_services.DialogueService;
 import misc_services.LocationService;
 import misc_services.PrinterService;
@@ -20,7 +20,7 @@ public class Game {
 
     public static void startGame() {
 
-        CharacterService characterService = new CharacterService();
+        ClassService classService = new ClassService();
         boolean runGame = true;
         PrinterService printerService = new PrinterService();
 
@@ -41,7 +41,7 @@ public class Game {
             printerService.createWhiteSpace(10);
             printerService.printHeading("Please Choose A Class :");
             printerService.printCharacterClassNamesAndDescriptions();
-            playerCharacter.setCharacterClass(characterService.getCharacterClassFromUserChoice(printerService.getUserNumberInput()));
+            playerCharacter.setCharacterClass(classService.getCharacterClassFromUserChoice(printerService.getUserNumberInput()));
 
             printerService.createWhiteSpace(10);
             System.out.println("You have chosen the " + playerCharacter.getCharacterClass().getClassName() + ".\n" +
