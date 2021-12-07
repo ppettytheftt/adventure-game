@@ -44,7 +44,7 @@ public class Game {
             playerCharacter.setCharacterClass(characterService.getCharacterClassFromUserChoice(printerService.getUserNumberInput()));
 
             printerService.createWhiteSpace(10);
-            System.out.println("You have chosen the " + playerCharacter.getCharacterClass().getClassName() +".\n" +
+            System.out.println("You have chosen the " + playerCharacter.getCharacterClass().getClassName() + ".\n" +
                     "Do you wish to continue?\n1 ) Yes\n2 ) No");
             int classContinueChoice = printerService.getUserNumberInput();
 
@@ -127,8 +127,10 @@ public class Game {
                             printerService.anythingToContinue();
                             break;
                         }
-                    } else if(currentArea.getAreaName().contains("Castle")) {
-                            dialogueService.executeGateGuardConversation(playerCharacter);
+                    } else if (currentArea.getAreaName().contains("Castle")) {
+                        dialogueService.executeGateGuardConversation(playerCharacter);
+                        printerService.anythingToContinue();
+                        break;
                     } else {
                         System.out.println("There's no one here to talk to.");
                         printerService.anythingToContinue();

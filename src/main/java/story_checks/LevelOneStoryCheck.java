@@ -17,6 +17,8 @@ public class LevelOneStoryCheck {
             if(inventoryItem.getName().equals("Gate Pass")){
                 hasGatePass = true;
                 break;
+            } else {
+                hasGatePass = false;
             }
         }
         return hasGatePass;
