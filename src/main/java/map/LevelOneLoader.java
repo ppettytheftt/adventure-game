@@ -196,11 +196,9 @@ public class LevelOneLoader {
         areaList.add(BAZAAR_NAME);
         areaList.add(TAVERN_NAME);
         areaList.add(CHURCH_NAME);
-        lookOutcomes.add("It's quiet, minus a few prayers being whispered and hymns being hummed. There's a\n" +
-                "few people working around here and a gateGuard sitting on the bench in the front row.\n" +
-                "Maybe he has some work for me?");
+        lookOutcomes.add("The castle gates are massive. Many guards are posted at the entrance. Security has been tightened for some reason.");
         lookOutcomes.add("Nothing really interesting.");
-        lookOutcomes.add("There's a man sitting in the front pew.. He seems pretty important. Maybe I should speak with him.");
+        lookOutcomes.add("I should probably find somewhere to be. I don't want to look suspicious with how on edge the guards are.");
         lookOutcomes.add(ASK_FOR_WORK);
 
         castleGates.setAreaName(CASTLE_GATES_NAME);

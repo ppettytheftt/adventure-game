@@ -58,15 +58,17 @@ public class DialogueService {
         printerService.createWhiteSpace(1);
         boolean checkStatus = levelOneStoryCheck.gatePassCheck(playerCharacter);
         continueConversation();
+
         if (checkStatus) {
+            // true
             System.out.println(gateGuardResponses.get(2));
             printerService.createWhiteSpace(1);
-            endConversation();
         } else {
+            // false
             System.out.println(playerDialogue.get(1));
             System.out.println(gateGuardResponses.get(1));
-            endConversation();
         }
+        endConversation();
     }
 
     private static void continueConversation() {
@@ -81,7 +83,11 @@ public class DialogueService {
     }
 
     private static void endConversation() {
-        printerService.createWhiteSpace(2);
-        printerService.getUserTextInput("** Enter anything to end the conversation. **");
+        boolean userEnteredAnything = false;
+        while (!userEnteredAnything) {
+            printerService.createWhiteSpace(2);
+            printerService.getUserTextInput("** Enter anything to end the conversation. **");
+            userEnteredAnything = true;
+        }
     }
 }
